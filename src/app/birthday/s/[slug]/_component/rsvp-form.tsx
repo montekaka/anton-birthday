@@ -11,7 +11,7 @@ type Params = {
 
 export default function RsvpForm(params: Params) {
   const { slug, needRsvp, name } = params;
-  const [state, formAction, isPending] = useActionState(updateGuestNumber, null)
+  const [, formAction, isPending] = useActionState(updateGuestNumber, {})
 
   if(needRsvp && isPending === false) {
     return (

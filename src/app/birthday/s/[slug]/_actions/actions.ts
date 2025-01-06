@@ -2,12 +2,12 @@
 
 import { revalidatePath } from "next/cache";
 
-type ActionState = {
+export type UpdateRSVPActionState = {
   slug?: string;
   guest_number?: string;
 }
 
-export async function updateGuestNumber(_prevState: ActionState, formData: FormData) {
+export async function updateGuestNumber(_prevState: UpdateRSVPActionState, formData: FormData) {
   const slug = formData.get("slug") as string;
   const guest_number = formData.get("guest_number") as string;
 
