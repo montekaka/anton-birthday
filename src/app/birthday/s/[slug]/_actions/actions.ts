@@ -5,9 +5,10 @@ import { revalidatePath } from "next/cache";
 export type UpdateRSVPActionState = {
   slug?: string;
   guest_number?: string;
+  error?: string;
 }
 
-export async function updateGuestNumber(_prevState: UpdateRSVPActionState, formData: FormData) {
+export async function updateGuestNumber(_prevState: UpdateRSVPActionState, formData: FormData): Promise<UpdateRSVPActionState> {
   const slug = formData.get("slug") as string;
   const guest_number = formData.get("guest_number") as string;
 
@@ -15,11 +16,18 @@ export async function updateGuestNumber(_prevState: UpdateRSVPActionState, formD
     await fetch(`https://script.google.com/macros/s/AKfycby1HR2v71ccdjYGodXALtF9qroqXJASpdGiAr3vzb7TNTVCx8-glaXISWpdkLl0dVQ4/exec?slug=${slug}&guest_number=${guest_number}`, {
       method: "POST",
     })
+
+    revalidatePath(`birthday/s/${slug}`)
+
+    return {
+      slug,
+      guest_number,
+    }
   } catch {
-    return "An error occurred."
+    return {
+      slug,
+      guest_number,
+      error: "An error occurred."
+    }
   }
-
-  revalidatePath(`birthday/s/${slug}`)
-
-  return "success"
 }
