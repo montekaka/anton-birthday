@@ -36,7 +36,7 @@ export default async function Page({
                 <h2 className="text-xl text-gray-700 font-semibold md:text-2xl">
                   Anton turns 5!
                 </h2>
-                <p className='text-gray-600 text-sm'>Please join us to celebrate Anton's turning 5!</p>
+                <p className='text-gray-600 text-sm'>Please join us to celebrate Anton&#39;s turning 5!</p>
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default async function Page({
             <h3 className="text-lg font-semibold mb-2 text-gray-600">Event Time</h3>
             <p className="text text-gray-700 md:text-base">February 2, 2025 (2pm - 4pm)</p>
             <p className="text-sm text-gray-600 md:text-base">
-              We will have access to the Giant Party Hat Tent for two hours and can enjoy Kidspace Children's Museum during their operational hours for the day.
+              We will have access to the Giant Party Hat Tent for two hours and can enjoy Kidspace Children&#39;s Museum during their operational hours for the day.
             </p>
           </div>
 

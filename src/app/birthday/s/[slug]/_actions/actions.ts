@@ -11,7 +11,7 @@ export async function updateGuestNumber(prevState: any, formData: FormData) {
     await fetch(`https://script.google.com/macros/s/AKfycby1HR2v71ccdjYGodXALtF9qroqXJASpdGiAr3vzb7TNTVCx8-glaXISWpdkLl0dVQ4/exec?slug=${slug}&guest_number=${guest_number}`, {
       method: "POST",
     })
-  } catch(e) {
+  } catch {
     return "An error occurred."
   }
 

@@ -40,7 +40,7 @@ const Balloon2SVG = ({ color }: { color: string }) => (
   </svg>
 )
 
-const CakeSVG = ({ color }: { color: string }) => (
+const CakeSVG = () => (
   <svg width="111" height="135" viewBox="0 0 111 135" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M2.35248 95.651L93.4625 75.5009L20.4225 0.500946L2.35248 95.651Z" fill="#E7B653"/>
     <path d="M21.8824 21.101C24.1824 20.961 26.3324 22.361 27.1124 24.431C27.9124 26.571 27.2524 28.781 25.3824 30.241C22.9924 32.111 19.9524 31.961 18.0624 29.841C16.7224 28.331 16.2924 26.591 16.9924 24.671C17.7124 22.711 19.1624 21.571 21.1824 21.171C21.4424 21.121 21.7124 21.111 21.8724 21.091L21.8824 21.101Z" fill="#EFE3C2"/>
@@ -64,7 +64,7 @@ const Decoration = ({ color, name }: { color: string, name: string }) => {
   } else if(name === "Balloon2SVG") {
     return <Balloon2SVG color={color}/>
   } else if (name === "CakeSVG") {
-    return <CakeSVG color={color}/>
+    return <CakeSVG/>
   } else {
     return <div className={`rounded-full bg-[${color}] w-12 h-12`}></div>
   }
