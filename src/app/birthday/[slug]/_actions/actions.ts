@@ -17,7 +17,7 @@ export async function updateGuestNumber(_prevState: UpdateRSVPActionState, formD
       method: "POST",
     })
 
-    revalidatePath(`birthday/s/${slug}`)
+    revalidatePath(`birthday/${slug}`)
 
     return {
       slug,
