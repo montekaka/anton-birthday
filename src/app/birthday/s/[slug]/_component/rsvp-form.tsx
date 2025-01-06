@@ -11,9 +11,9 @@ type Params = {
 
 export default function RsvpForm(params: Params) {
   const { slug, needRsvp, name } = params;
-  const [_, formAction, isPending] = useActionState(updateGuestNumber, null)
+  const [state, formAction, isPending] = useActionState(updateGuestNumber, null)
 
-  if(needRsvp) {
+  if(needRsvp && isPending === false) {
     return (
       <div className='p-4 shadow-md'>
         <p className='text-gray-700'>Can you make it, {name}?</p>
@@ -26,7 +26,7 @@ export default function RsvpForm(params: Params) {
             required
           >
             <option value="">Total attending</option>
-            {Array.from({ length: 19 }, (_, i) => i + 2).map((value) => (
+            {Array.from({ length: 9 }, (_, i) => i + 2).map((value) => (
               <option key={value} value={value}>
                 {value}
               </option>

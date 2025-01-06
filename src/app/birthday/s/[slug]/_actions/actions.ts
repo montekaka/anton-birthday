@@ -2,8 +2,12 @@
 
 import { revalidatePath } from "next/cache";
 
-export async function updateGuestNumber(prevState: any, formData: FormData) {
-  console.log(formData)
+type ActionState = {
+  slug?: string;
+  guest_number?: string;
+}
+
+export async function updateGuestNumber(_prevState: ActionState, formData: FormData) {
   const slug = formData.get("slug") as string;
   const guest_number = formData.get("guest_number") as string;
 
@@ -17,4 +21,5 @@ export async function updateGuestNumber(prevState: any, formData: FormData) {
 
   revalidatePath(`birthday/s/${slug}`)
 
+  return "success"
 }
