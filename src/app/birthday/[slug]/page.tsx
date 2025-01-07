@@ -36,7 +36,7 @@ export async function generateMetadata(
       type: 'website',
       images: [
         {
-          url: `https://antonchen.xyz/birthday/${slug}/opengraph-image`,
+          url: `https://assets.justcast.xyz/anton-meta.jpg`,
           width: 1200,
           height: 630,
           alt: `${data.name}'s Birthday Bash Invitation`,
