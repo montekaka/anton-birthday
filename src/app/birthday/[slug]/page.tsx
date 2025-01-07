@@ -1,17 +1,57 @@
 import Image from 'next/image';
 import RsvpForm from './_component/rsvp-form'
 import Balloons from './_component/balloons'
+import type { Metadata, ResolvingMetadata } from 'next'
+
+type Props = {
+  params: Promise<{ slug: string }>
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = (await params).slug
+  const res = await fetch(`https://script.google.com/macros/s/AKfycbw99YtzrxKfMdB3h3Ixff6SgHyUyg-sJLGrsa6ehMs5-_BmGUPiFcStxV5rdmCqMvtZ/exec?slug=${slug}`)
+  const invites = await res.json()
+  const { data } = invites
+  const invite = data[0];
+
+  if(data.length === 0) {
+    return {
+      title: 'Anton turns 5!',
+      description: 'Join us for a fun-filled birthday celebration!',
+    }
+  }
+
+  return {
+    title: `👋🏼 ${invite.name}, Anton turns 5!`,
+    description: `Join us for a fun-filled celebration of Anton's birthday at Kidspace Pasadena!`,
+    openGraph: {
+      title: `👋🏼 ${invite.name}, Anton turns 5!`,
+      description: `Join us for a fun-filled celebration of Anton's birthday at Kidspace Pasadena!`,
+      url: `https://antonchen.xyz/birthday/${slug}`,
+      siteName: `Anton's Birthday Bash`,
+      locale: 'en_US',
+      type: 'website',
+    },
+  }
+}
 
 export default async function Page({
     params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
+}: Props) {
   const slug = (await params).slug
   const res = await fetch(`https://script.google.com/macros/s/AKfycbw99YtzrxKfMdB3h3Ixff6SgHyUyg-sJLGrsa6ehMs5-_BmGUPiFcStxV5rdmCqMvtZ/exec?slug=${slug}`)
   const invites = await res.json()
   const { data } = invites
   const invite = data[0]
+
+  if(data.length === 0) {
+    return null
+  }
+
   if(invite) {
 
     const {name, guest_count} = invite;
