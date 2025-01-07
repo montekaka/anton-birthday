@@ -77,15 +77,14 @@ export default async function Page({
               fill={true}
               className="rounded-lg"
             />
-          </div>
-
-          <div className="absolute bottom-0 left-0 w-full bg-white bg-opacity-95 p-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h3 className='text-lg text-gray-600 font-semibold md:text-xl'>👋🏼 Hi {name}</h3>
-              <h2 className="text-xl text-gray-700 font-semibold md:text-2xl">
-                Anton turns 5!
-              </h2>
-              <p className='text-gray-600 text-sm'>Please join us to celebrate Anton&#39;s turning 5!</p>
+            <div className="absolute bottom-0 left-0 w-full bg-white bg-opacity-95 p-4">
+              <div className="max-w-4xl mx-auto text-center">
+                <h3 className='text-lg text-gray-600 font-semibold md:text-xl'>👋🏼 Hi {name}</h3>
+                <h2 className="text-xl text-gray-700 font-semibold md:text-2xl">
+                  Anton turns 5!
+                </h2>
+                <p className='text-gray-600 text-sm'>Please join us to celebrate Anton&#39;s turning 5!</p>
+              </div>
             </div>
           </div>
           {/* Description Section */}
