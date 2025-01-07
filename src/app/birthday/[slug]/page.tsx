@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import RsvpForm from './_component/rsvp-form'
 import Balloons from './_component/balloons'
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -9,7 +9,6 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
   const slug = (await params).slug
