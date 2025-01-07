@@ -34,6 +34,14 @@ export async function generateMetadata(
       siteName: `Anton's Birthday Bash`,
       locale: 'en_US',
       type: 'website',
+      images: [
+        {
+          url: `https://antonchen.xyz/birthday/${slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${data.name}'s Birthday Bash Invitation`,
+        },
+      ],
     },
   }
 }
@@ -71,6 +79,15 @@ export default async function Page({
             />
           </div>
 
+          <div className="absolute bottom-0 left-0 w-full bg-white bg-opacity-95 p-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h3 className='text-lg text-gray-600 font-semibold md:text-xl'>👋🏼 Hi {name}</h3>
+              <h2 className="text-xl text-gray-700 font-semibold md:text-2xl">
+                Anton turns 5!
+              </h2>
+              <p className='text-gray-600 text-sm'>Please join us to celebrate Anton&#39;s turning 5!</p>
+            </div>
+          </div>
           {/* Description Section */}
           <div className="mt-6 bg-white p-4 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold mb-2 text-gray-600">Event Time</h3>
@@ -118,6 +135,3 @@ export default async function Page({
 
   return null
 }
-
-
-// https://script.google.com/macros/s/AKfycbyQELfZhco_hkk5HIXon-zqkyRoZ66HErrQtj1owI34JxGf5aM8e6ATNwBntOEoC8UA/exec?slug=4FDF63C8
