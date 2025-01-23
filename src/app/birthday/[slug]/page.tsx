@@ -12,23 +12,12 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   // read route params
   const slug = (await params).slug
-  const res = await fetch(`https://script.google.com/macros/s/AKfycbw99YtzrxKfMdB3h3Ixff6SgHyUyg-sJLGrsa6ehMs5-_BmGUPiFcStxV5rdmCqMvtZ/exec?slug=${slug}`)
-  const invites = await res.json()
-  const { data } = invites
-  const invite = data[0];
-
-  if(data.length === 0) {
-    return {
-      title: 'Anton turns 5!',
-      description: 'Join us for a fun-filled birthday celebration!',
-    }
-  }
 
   return {
-    title: `👋🏼 ${invite.name}, Anton turns 5!`,
+    title: `👋🏼 Anton turns 5!`,
     description: `Join us for a fun-filled celebration of Anton's birthday at Kidspace Pasadena!`,
     openGraph: {
-      title: `👋🏼 ${invite.name}, Anton turns 5!`,
+      title: `👋🏼 Anton turns 5!`,
       description: `Join us for a fun-filled celebration of Anton's birthday at Kidspace Pasadena!`,
       url: `https://antonchen.xyz/birthday/${slug}`,
       siteName: `Anton's Birthday Bash`,
@@ -39,7 +28,7 @@ export async function generateMetadata(
           url: `https://assets.justcast.xyz/anton-meta.jpg`,
           width: 1200,
           height: 630,
-          alt: `${data.name}'s Birthday Bash Invitation`,
+          alt: `Anton's Birthday Bash Invitation`,
         },
       ],
     },
